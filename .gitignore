@@ -2,4 +2,5 @@
 *venv
 *.jpg
 *.png
+*.pyc
 
