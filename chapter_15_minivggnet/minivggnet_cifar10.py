@@ -10,14 +10,23 @@ from sklearn.preprocessing import LabelBinarizer
 from sklearn.metrics import classification_report
 from pyimagesearch.nn.conv.minivggnet import MiniVGGNet
 from keras.optimizers import SGD
+from keras.callbacks import LearningRateScheduler
 from sklearn import datasets
 from keras.datasets import cifar10
+
+
+def step_decay(epoch, factor=0.25, dropEvery=5):
+    initAlpha = 0.01
+
+    alpha = initAlpha * (factor ** np.floor((1 + epoch) / dropEvery))
+    return float(alpha)
 
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('-o', '--output', help='path to out plot', required=True)
     ap.add_argument('-n', '--norm', type=int, default=0, help='normalize or not (0/1)', required=True)
+    ap.add_argument('-d', '--decay', type=int, default=-1, help='decay: -1 None, 0 step', required=True)
     args = vars(ap.parse_args())
 
     ((trainX, trainY), (testX, testY)) = cifar10.load_data()
@@ -29,6 +38,10 @@ if __name__ == '__main__':
     testY = lb.transform(testY)
 
     labelNames = ['plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+
+    callbacks = []
+    if args['decay'] == 0:
+        callbacks = [LearningRateScheduler(step_decay)]
 
     opt = SGD(lr=0.01, decay=0.01 / 40, momentum=0.9, nesterov=True)
     model = MiniVGGNet.build(width=32, height=32, depth=3, classes=10, normalize=args['norm'])
