@@ -11,3 +11,4 @@
 * [Chapter 15: MiniVGGNet](./chapter_15_minivggnet)
 * [Chapter 16: Learning Rate Scheduling](./chapter_16_lr_schedulers)
 * [Chapter 17: Spotting Under/Overfitting](./chapter_17_spotting_over_under_fitting)
+* [Chapter 18: Checkpointing](./chapter_17_spotting_over_under_fitting/cifar10_checkpoint.py)
