@@ -1,0 +1,7 @@
+tensorflow-gpu
+keras
+numpy
+tqdm
+matplotlib
+argparse
+scikit-learn
