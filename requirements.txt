@@ -1,9 +1,11 @@
 tensorflow-gpu
-keras
-numpy
-tqdm
-matplotlib
-argparse
-scikit-learn
+keras~=2.4.3
+numpy~=1.19.4
+tqdm~=4.54.1
+matplotlib~=3.3.3
+argparse~=1.4.0
+scikit-learn~=0.23.2
 graphviz==0.5.2
 pydot-ng==1.0.0
+requests
+imutils~=0.5.3

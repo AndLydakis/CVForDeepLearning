@@ -12,3 +12,6 @@
 * [Chapter 16: Learning Rate Scheduling](./chapter_16_lr_schedulers)
 * [Chapter 17: Spotting Under/Overfitting](./chapter_17_spotting_over_under_fitting)
 * [Chapter 18: Checkpointing](./chapter_17_spotting_over_under_fitting/cifar10_checkpoint.py)
+* [Chapter 18: Network Visualisation](./chapter_19_network_visualisation)
+* [Chapter 21: Pretrained CNNs](./chapter_20_pretrained_cnns)
+* [Chapter 18: Captcha Breaker](./chapter_21_captcha)
