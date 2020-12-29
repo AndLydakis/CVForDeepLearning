@@ -47,8 +47,8 @@ if __name__ == '__main__':
         callbacks = [LearningRateScheduler(step_decay)]
     if args['decay'] == 1:
         curpath = os.path.abspath(os.curdir)
-        figPath = curpath + os.path.sep.join([args['output'], '{}.png'.format(os.getpid())])
-        jsonPath = curpath + os.path.sep.join([args['output'], '{}.json'.format(os.getpid())])
+        figPath = curpath + os.path.sep.join([args['output'], str(os.getpid()), 'plot.png'])
+        jsonPath = curpath + os.path.sep.join([args['output'], str(os.getpid()), 'history.json'.format(os.getpid())])
         if not os.path.exists(os.path.dirname(figPath)):
             try:
                 os.makedirs(os.path.dirname(figPath))
@@ -56,15 +56,23 @@ if __name__ == '__main__':
                 raise
         callbacks = [TrainingMonitor(figPath, jsonPath=jsonPath)]
 
-    cpPath = curpath + os.path.sep.join(
-        [args['output'], args['weights'] + '_{}/'.format(os.getpid()), 'weights-{epoch:03d}-{val_loss:.4f}.hdf5'])
-    if not os.path.exists(os.path.dirname(cpPath)):
-        try:
-            os.makedirs(os.path.dirname(cpPath))
-        except Exception as exc:
-            raise
+    # Use templated string to save all models
+    # cpPath = curpath + os.path.sep.join(
+    #     [args['output'], args['weights'] + '/{}.hdf5'.format(os.getpid()), 'weights-{epoch:03d}-{val_loss:.4f}.hdf5'])
+    # if not os.path.exists(os.path.dirname(cpPath)):
+    #     try:
+    #         os.makedirs(os.path.dirname(cpPath))
+    #     except Exception as exc:
+    #         raise
 
+    cpPath = curpath + os.path.sep.join([args['output'], str(os.getpid()), args['weights'] + '.hdf5'])
+    print('--------------------')
+    print(figPath)
+    print(jsonPath)
+    print(cpPath)
+    print('--------------------')
     checkpoint = ModelCheckpoint(cpPath, monitor='val_loss', mode='min', save_best_only=True, verbose=1)
+
     callbacks.append(checkpoint)
 
     opt = SGD(lr=0.01, decay=0.01 / 40, momentum=0.9, nesterov=True)
