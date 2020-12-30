@@ -1,4 +1,6 @@
-# Deep Learning For Computer Vision With Python
+# [Smile Detector](./chapter_22_smile_detect/smile_detector.py)
+
+### Computer Vision for Deep Learning
 
 * [Chapter 7: Simple Image Classifier](./chapter_7_image_classifier)
 * [Chapter 8: Parametrized Classification](./chapter_8_parametrized_classification)
@@ -12,6 +14,8 @@
 * [Chapter 16: Learning Rate Scheduling](./chapter_16_lr_schedulers)
 * [Chapter 17: Spotting Under/Overfitting](./chapter_17_spotting_over_under_fitting)
 * [Chapter 18: Checkpointing](./chapter_17_spotting_over_under_fitting/cifar10_checkpoint.py)
-* [Chapter 18: Network Visualisation](./chapter_19_network_visualisation)
-* [Chapter 21: Pretrained CNNs](./chapter_20_pretrained_cnns)
-* [Chapter 18: Captcha Breaker](./chapter_21_captcha)
+* [Chapter 19: Network Visualisation](./chapter_19_network_visualisation)
+* [Chapter 20: Pretrained CNNs](./chapter_20_pretrained_cnns)
+* [Chapter 21: Captcha Breaker](./chapter_21_captcha)
+* [Chapter 22: Smile Detection](./chapter_22_smile_detect/smile_detector.py)
+    * Trained with [SMILES](https://www.kaggle.com/c/smiles)
