@@ -1,6 +1,6 @@
 # [Smile Detector](./chapter_22_smile_detect/smile_detector.py)
 
-### Computer Vision for Deep Learning
+### Deep Learning For Computer Vision
 
 * [Chapter 7: Simple Image Classifier](./chapter_7_image_classifier)
 * [Chapter 8: Parametrized Classification](./chapter_8_parametrized_classification)
